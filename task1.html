@@ -1,0 +1,44 @@
+<HTML>
+<BODY>
+
+<canvas id='task1' height='800' width = '800' style='border:5px solid'>
+</canvas>
+
+<script>
+	var canvas = document.getElementById('task1');
+	var ctx = canvas.getContext('2d');
+	var click_f=0;
+	var flag_j = 0;
+	var j=0;
+	var intervalID;
+	ctx.fillStyle = "#00FF00";
+	canvas.addEventListener('click',function(event){
+	if(click_f==0){
+		intervalID=setInterval(function(){
+			ctx.clearRect(0,0,canvas.width,canvas.height);
+			ctx.fillRect(j,j,100,100);
+			if (j==700){
+				flag_j = 1;
+			}
+			if (j==0){
+				flag_j = 0
+			}	
+			if (flag_j==0){
+				j += 1;
+			}
+			else{
+				j -= 1;
+			}
+		},10);
+		click_f=1;
+	}
+	else if(click_f==1)
+	{
+		clearInterval(intervalID);
+		click_f=0;
+	}
+	});
+</script>
+
+</BODY>
+</HTML>
