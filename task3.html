@@ -20,8 +20,8 @@
 		while(true)
 		 
 		{
-			if (x1===x2){
-				if (y1===y2){
+			if (x1==x2){
+				if (y1==y2){
 					break;				
 				}
 			}
@@ -39,20 +39,21 @@
 			}
 		}
 	}
-	let point_index=0;
-	canvas.addEventListener('click',function(e)
+	
+	var flag=0;
+	canvas.addEventListener('click',function(event)
 	{
-		if(point_index == 0){
-			x1=e.offsetX;
-			y1=e.offsetY;
-			point_index = 1;
+		if(flag == 0){
+			x1=event.offsetX;
+			y1=event.offsetY;
+			flag = 1;
 		} 
 		else 
 		{
-			x2=e.offsetX;
-			y2=e.offsetY;
+			x2=event.offsetX;
+			y2=event.offsetY;
 			line(ctx,x1,y1,x2,y2);
-			point_index = 0;
+			flag = 0;
 		}
 	});
 </script>
